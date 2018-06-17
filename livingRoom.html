@@ -21,11 +21,13 @@
 </head>
 <body onscroll="scrollUpdate()">
 <div class="father">
-    <div class="mainDiv">
-        <h1 class="titleDiv">
+    <div class="titleDiv">
+        <h1>
             <span class="solias" id="solias">Solias</span>
-            <span class="boligstyling">Boligstyling</span>
+            <span class="boligstyling" id="boligstyling">Boligstyling</span>
         </h1>
+    </div>
+    <div class="mainDiv">
         <div class="manuDiv">
             <a class="menuButton" href="index.html">Hjem</a>
             <a class="menuButton" href="omoss.html">Om oss</a>
@@ -71,11 +73,12 @@
             <img src="./img/livingRoom/6.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('./img/livingRoom/6.jpg')">
             <img src="./img/livingRoom/7.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('./img/livingRoom/7.jpg')">
         </div>
+        
         <div class="imgBack" onclick="zoomOut()" id="imgBack">
-            <img src="./img/livingRoom/0.jpg" class="zoomImg" id="zoomImg">
+            <img src="./img/livingRoom/0.jpg" class="zoomImg" id="zoomImg" onclick="nextImg(1)">
             <p class="close" onclick="zoomOut()">X</p>
         </div>
-
+        
         <img class="loeadingImg" id="loeadingImg" src="./img/loading.gif"/>
     </div>
 </div>

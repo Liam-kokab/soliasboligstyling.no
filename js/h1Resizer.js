@@ -1,7 +1,6 @@
 
 
     function scrollUpdate(){
-        var fontsize = Math.max(130 - getScrollTop(), 50);
         document.getElementById('solias').style.fontSize = (Math.max(130 - getScrollTop(), 70) + 'px');
         document.getElementById('boligstyling').style.fontSize = (Math.max(50 - getScrollTop()/2, 20) + 'px');
     }

@@ -10,6 +10,10 @@ var lastImgLoaded = 7;
 var done = false;
 var imgNeedToLoad = 8;
 
+function nextImg(i){
+    console.log(i);
+}
+
 function imageLoaded(){
     imgNeedToLoad--;
     if(imgNeedToLoad < 1){
@@ -43,6 +47,10 @@ function init(roomName, NumberOfImages) {
 }
 
 function scrollUpdate() {
+    //title resize
+    document.getElementById('solias').style.fontSize = (Math.max(130 - getScrollTop(), 70) + 'px');
+    document.getElementById('boligstyling').style.fontSize = (Math.max(50 - getScrollTop()/2, 20) + 'px');
+    
     if(imgNeedToLoad > 0) {
         document.getElementById('loeadingImg').style.display = 'inherit';
         return;

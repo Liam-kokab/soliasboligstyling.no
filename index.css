@@ -7,45 +7,50 @@
     text-align: -moz-center;
 }
 
-.mainDiv{
-    top: 140px;
-    position: relative;
-    max-width: 60em;
-    padding: 1% 1% 1% 1%;
-    align-self: center;
-    z-index: -1;
-}
-
 .titleDiv{
     text-align: center;
     width: 100%;
     min-width: 60em;
     position: fixed;
+    z-index: 20;
 }
 
 h1{
     background-color: white;
-    max-width: 60em;
+    max-width: 1000px;
     width: 100%;
-    text-align: center;
+    text-align: left;
     margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    padding-left: 40px;
     padding-top: 15px;
 }
 
 .solias{
     font-family: 'Tangerine', cursive;
-    color: #bdbd00;
-    text-shadow: 2px 1px 5px #8b8b00;
+    color: #919100;
+    /*text-shadow: 6px 1px 2px #8b8b00;*/
     font-size: 130px;
 }
 
 .boligstyling{
     font-family: 'Tangerine', cursive;
     color: #afaf00;
-    text-shadow: 1px 1px 5px #8b8b00;
+    /*text-shadow: 6px 1px 2px #8b8b00;*/
     font-size: 50px;
 }
 
+.mainDiv{
+    top: 140px;
+    position: relative;
+    max-width: 60em;
+    padding: 1% 1% 1% 1%;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 .manuDiv{
     width: 100%;
     height: 25px;
@@ -53,7 +58,6 @@ h1{
     margin-bottom: 5px;
     background-color: rgb(54, 54, 54);
     text-align: start;
-
 }
 .diveider{
     width: 90%;
@@ -117,7 +121,7 @@ gridElem{
     opacity: 0.9;
     box-shadow: 5px 5px 30px #919191;
     position: relative;
-    z-index: 100;
+    z-index: 10;
 }
 .gridImg:hover{
     opacity: 1;
@@ -132,7 +136,7 @@ gridElem{
     margin: -40% 0 0 0;
     font-size: 110%;
     
-    z-index: 200;
+    z-index: 11;
     position: relative;
     transition: background-color .5s ease-in-out;
 }
@@ -162,7 +166,7 @@ gridElem{
 }
 
 .imgBack{
-    z-index: 300;
+    z-index: 30;
     position: fixed;
     top:0;
     left:0;
@@ -176,7 +180,7 @@ gridElem{
 
 }
 .zoomImg{
-    z-index: 310;
+    z-index: 31;
     position: fixed;
     max-width: 95%;
     max-height: 95%;
@@ -202,7 +206,7 @@ gridElem{
 .close{
 
     position: fixed;
-    z-index: 320;
+    z-index: 32;
     color: rgba(255, 255, 255, 0.6);
     background-color: rgba(94, 94, 94, 0.35);
     font-size: 50px;
@@ -233,11 +237,6 @@ gridElem{
         padding-bottom: 16vw;
     }
 }
-
-@media (width: 1000px) {
-
-}
-
 
 html, body {
     width: 100%;
