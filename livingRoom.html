@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <meta name="description" content="Solias boligstyling">
+    <meta name="keywords" content="boligstyling,Solias,Soliasboligstyling,interiørkonsulent,Lena Kokab">
+    <meta name="author" content="Liam Kokab">
+    <title>soliasboligstyling Stue</title>
+
+    <link rel="stylesheet" type="text/css" href="./index.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Tangerine" rel="stylesheet"></link>
+
+    <script src="./js/zoom.js"></script>
+
+
+
+
+</head>
+<body onscroll="scrollUpdate()">
+<div class="father">
+    <div class="mainDiv">
+        <div class="titleDiv">
+            <span class="solias">Solias</span>
+            <span class="boligstyling">Boligstyling</span>
+        </div>
+        <div class="manuDiv">
+            <a class="menuButton" href="index.html">Hjem</a>
+            <a class="menuButton" href="omoss.html">Om oss</a>
+            <a class="menuButton" href="priser.html">Priser</a>
+            <a class="menuButton" href="kontakt.html">Kontakt</a>
+        </div>
+        <div class="gridDiv">
+                 <div class="gridElem" style="-ms-grid-column: 1" >
+                     <a href="livingRoom.html">
+                         <img class="gridImg" src="./img/0.jpg" />
+                         <p  class="textImg">Stue</p>
+                     </a>
+                 </div>
+                 <div class="gridElem" style="-ms-grid-column: 2" >
+                     <a href="livingRoom.html">
+                         <img class="gridImg" src="./img/1.jpg" />
+                         <p  class="textImg">Kjøkken</p>
+                     </a>
+                 </div>
+                 <div class="gridElem" style="-ms-grid-column: 3" >
+                     <a href="livingRoom.html">
+                         <img class="gridImg" src="./img/2.jpg" />
+                         <p  class="textImg">Soverom</p>
+                     </a>
+                 </div>
+                 <div class="gridElem" style="-ms-grid-column: 4" >
+                     <a href="livingRoom.html">
+                         <img class="gridImg" src="./img/3.jpg" />
+                         <p  class="textImg">Bad</p>
+                     </a>
+                 </div>
+                 
+        </div>
+        <div class="manuDiv"></div>
+    
+        <div class='gridDiv' id='imgGrid'>
+            <img src="./img/livingRoom/0.jpg" id="thumbnails" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('./img/livingRoom/0.jpg')">
+            <img src="./img/livingRoom/1.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('./img/livingRoom/1.jpg')">
+            <img src="./img/livingRoom/2.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('./img/livingRoom/2.jpg')">
+            <img src="./img/livingRoom/3.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('./img/livingRoom/3.jpg')">
+            <img src="./img/livingRoom/4.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('./img/livingRoom/4.jpg')">
+            <img src="./img/livingRoom/5.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('./img/livingRoom/5.jpg')">
+            <img src="./img/livingRoom/6.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('./img/livingRoom/6.jpg')">
+            <img src="./img/livingRoom/7.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('./img/livingRoom/7.jpg')">
+        </div>
+        <div class="imgBack" onclick="zoomOut()" id="imgBack">
+            <img src="./img/livingRoom/0.jpg" class="zoomImg" id="zoomImg">
+            <p class="close" onclick="zoomOut()">X</p>
+        </div>
+
+        <img class="loeadingImg" id="loeadingImg" src="./img/loading.gif"/>
+    </div>
+</div>
+
+
+<script type="text/javascript" language="javascript">
+    window.addEventListener("onload", init('livingRoom' , 45));
+    document.addEventListener("DOMContentLoaded", init('livingRoom' , 45), false);
+    window.addEventListener("resize", scrollUpdate);
+</script>
+</body>
+</html>

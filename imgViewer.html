@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Liam Kokab">
+    <title>ImgViewer</title>
+
+    <script src="./js/imgViewerJS.js"></script>
+    <script type="text/javascript" language="javascript">
+        window.addEventListener("resize", init);
+        window.addEventListener("onload", init);
+        document.addEventListener("DOMContentLoaded", init, false);
+    </script>
+
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .mainImage{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+        }
+
+        
+    </style>
+
+    
+</head>
+<body>
+    <div id="imgDiv" class="imgDiv"></div>
+        <img src='./imgViewerImages/0.jpg' id='Image0' class='mainImage' style='display: inherit'>
+    </div>
+</body>
+</html>
