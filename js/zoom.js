@@ -11,10 +11,16 @@ var done = false;
 var imgNeedToLoad = 8;
 var justChanged = false;
 var justChangedTime = 2;
+var lastZoomedImgRoom = null;
+var lastZoomedImgNum = 0;
 
 function nextImg(i){
+    if (lastZoomedImgRoom == null) return;
     justChanged = true;
-    console.log(i);
+    if(lastZoomedImgNum == numOfImg && i > 0) lastZoomedImgNum = 0;
+    else if (lastZoomedImgNum == 0 && i < 0) lastZoomedImgNum = numOfImg;
+    else lastZoomedImgNum = lastZoomedImgNum + i;
+    document.getElementById('zoomImg').src = './img/' + room + '/' + lastZoomedImgNum + '.jpg';
     ZoomOutControll();
 }
 
@@ -40,18 +46,20 @@ function imageLoaded(){
     }
 }
 
-function zoomIn(url) {
+function zoomIn(room, i) {
     if(inZoom) return;
-    document.getElementById('zoomImg').src = url;
+    document.getElementById('zoomImg').src = './img/' + room + '/' + i + '.jpg';
     document.getElementById('imgBack').style.display = 'inherit';
     inZoom = true;
-
+    lastZoomedImgNum = i;
+    lastZoomedImgRoom = room;
 }
 
 function zoomOut() {
     if(!inZoom || justChanged) return;
     document.getElementById('imgBack').style.display = 'none';
     inZoom = false;
+    lastZoomedImg = null;
 }
 
 function init(roomName, NumberOfImages) {
@@ -93,7 +101,7 @@ function updatePage(html) {
 function getHtml() {
     lastImgLoaded++;
     if(lastImgLoaded < numOfImg)
-        return '<img src="./img/' + room + '/' + lastImgLoaded + '.jpg" class="thumbnails" onload="imageLoaded()" onclick="zoomIn(\'./img/' + room + '/' + lastImgLoaded + '.jpg\')">';
+        return '<img src="./img/' + room + '/' + lastImgLoaded + '.jpg" class="thumbnails" onload="imageLoaded()" onclick="zoomIn(\'' + room + '\', ' + lastImgLoaded + ')">';
     done = true;
     return "";
 }
