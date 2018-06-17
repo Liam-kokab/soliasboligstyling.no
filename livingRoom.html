@@ -75,8 +75,14 @@
         </div>
         
         <div class="imgBack" onclick="zoomOut()" id="imgBack">
-            <img src="./img/livingRoom/0.jpg" class="zoomImg" id="zoomImg" onclick="nextImg(1)">
-            <p class="close" onclick="zoomOut()">X</p>
+            <img src="svd/left.svg" class="arrow left" onclick="nextImg(-1)">
+            <img src="svd/right.svg" class="arrow right" onclick="nextImg(1)">
+            <img src="svd/close.svg" class="arrow close" onclick="zoomOut()"></img>
+            <img src="./img/livingRoom/0.jpg" class="zoomImg" id="zoomImg" 
+            onclick="nextImg(1)"
+            on-swipe-left="nextImg(1)"
+            on-swipe-right="nextImg(-1)">
+            
         </div>
         
         <img class="loeadingImg" id="loeadingImg" src="./img/loading.gif"/>

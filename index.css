@@ -182,8 +182,8 @@ gridElem{
 .zoomImg{
     z-index: 31;
     position: fixed;
-    max-width: 95%;
-    max-height: 95%;
+    max-width: 98%;
+    max-height: 98%;
     margin: auto;
     top: 0;
     left: 0;
@@ -203,31 +203,33 @@ gridElem{
 }
 
 
-.close{
 
-    position: fixed;
-    z-index: 32;
-    color: rgba(255, 255, 255, 0.6);
-    background-color: rgba(94, 94, 94, 0.35);
-    font-size: 50px;
-    right: 1%;
-    top: 1%;
-    margin: 0;
-    padding: 0 12px 0 12px;
 
-    border-radius: 30px;
-    border: 1px solid ;
+    .arrow{
+        position: absolute;
+        width: 6%;
+        top:48%;
+        color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 200px;
+        z-index: 32;
+    }
+    .arrow:hover{
+        color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(94, 94, 94, 0.6);
+        cursor: pointer;
+    }
 
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-.close:hover{
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(94, 94, 94, 1);
-    cursor: pointer;
-}
+    .left{
+        left:1%;
+    }
+    .right{
+        right: 1%;
+    }
+    .close{
+        right: 1%;
+        top: 1%;
+    }
 
 
 @media screen and (orientation: portrait) {

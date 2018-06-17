@@ -9,9 +9,27 @@ var divGird;
 var lastImgLoaded = 7;
 var done = false;
 var imgNeedToLoad = 8;
+var justChanged = false;
+var justChangedTime = 2;
 
 function nextImg(i){
+    justChanged = true;
     console.log(i);
+    ZoomOutControll();
+}
+
+function ZoomOutControll() {
+    if (!justChanged) return;
+    if(justChangedTime > 0){
+        setTimeout(function () {
+            justChangedTime--;
+            ZoomOutControll();
+        }, 100);
+    }else{
+        justChanged = false;
+        justChangedTime = 2;
+        console.log("done");
+    }
 }
 
 function imageLoaded(){
@@ -31,7 +49,7 @@ function zoomIn(url) {
 }
 
 function zoomOut() {
-    if(!inZoom) return;
+    if(!inZoom || justChanged) return;
     document.getElementById('imgBack').style.display = 'none';
     inZoom = false;
 }
