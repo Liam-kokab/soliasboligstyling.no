@@ -1,37 +1,49 @@
 
 .father{
-    text-align: -webkit-center;
-    text-align: -moz-center;
     width: 100%;
     margin-bottom: 20px;
+    text-align: center;
+    text-align: -webkit-center;
+    text-align: -moz-center;
 }
 
 .mainDiv{
+    top: 140px;
+    position: relative;
     max-width: 60em;
     padding: 1% 1% 1% 1%;
-    text-align: center;
     align-self: center;
+    z-index: -1;
 }
 
 .titleDiv{
-    text-align: start;
-    width: 90%;
-    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+    min-width: 60em;
+    position: fixed;
+}
+
+h1{
+    background-color: white;
+    max-width: 60em;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding-top: 15px;
 }
 
 .solias{
     font-family: 'Tangerine', cursive;
     color: #bdbd00;
-    text-shadow: 5px 1px 10px #030303;
+    text-shadow: 2px 1px 5px #8b8b00;
     font-size: 130px;
 }
 
 .boligstyling{
     font-family: 'Tangerine', cursive;
     color: #afaf00;
-    text-shadow: 5px 1px 10px #404040;
+    text-shadow: 1px 1px 5px #8b8b00;
     font-size: 50px;
-    margin: 5px;
 }
 
 .manuDiv{
@@ -42,6 +54,13 @@
     background-color: rgb(54, 54, 54);
     text-align: start;
 
+}
+.diveider{
+    width: 90%;
+    height: 2px;
+    margin: 5px 5px 5px 5px;
+    background-color: rgb(54, 54, 54);
+    border-radius: 8px;
 }
 
 .menuButton{
@@ -126,7 +145,8 @@ gridElem{
      width: 100%;
      margin: 5px;
      border-radius: 8px;
-     border: 1px solid #7a7a7a;
+     background-color: #7a7a7a;
+     border: 1.5px solid #7a7a7a;
 
  }
 .thumbnails:hover{

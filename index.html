@@ -9,17 +9,19 @@
     <title>soliasboligstyling</title>
 
     <link rel="stylesheet" type="text/css" href="./index.css">
-
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Tangerine" rel="stylesheet"/>
+    <script src="./js/h1Resizer.js"></script>
 
 </head>
-<body>
+<body onscroll="scrollUpdate()">
 <div class="father">
-    <div class="mainDiv">
-        <div class="titleDiv">
-            <span class="solias">Solias</span>
-            <span class="boligstyling">Boligstyling</span>
-        </div>
+    <div class="titleDiv">
+        <h1>
+            <span class="solias" id="solias">Solias</span>
+            <span class="boligstyling" id="boligstyling">Boligstyling</span>
+        </h1>
+    </div>
+    <div class="mainDiv">    
         <div class="manuDiv">
             <a class="menuButton selectedButton" href="index.html">Hjem</a>
             <a class="menuButton" href="omoss.html">Om oss</a>
