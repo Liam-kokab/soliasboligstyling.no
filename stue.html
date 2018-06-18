@@ -36,25 +36,25 @@
         </div>
         <div class="gridDiv">
                  <div class="gridElem" style="-ms-grid-column: 1" >
-                     <a href="livingRoom.html">
+                     <a href="stue.html">
                          <img class="gridImg" src="./img/0.jpg" />
                          <p  class="textImg">Stue</p>
                      </a>
                  </div>
                  <div class="gridElem" style="-ms-grid-column: 2" >
-                     <a href="livingRoom.html">
+                     <a href="stue.html">
                          <img class="gridImg" src="./img/1.jpg" />
                          <p  class="textImg">Kjøkken</p>
                      </a>
                  </div>
                  <div class="gridElem" style="-ms-grid-column: 3" >
-                     <a href="livingRoom.html">
+                     <a href="stue.html">
                          <img class="gridImg" src="./img/2.jpg" />
                          <p  class="textImg">Soverom</p>
                      </a>
                  </div>
                  <div class="gridElem" style="-ms-grid-column: 4" >
-                     <a href="livingRoom.html">
+                     <a href="stue.html">
                          <img class="gridImg" src="./img/3.jpg" />
                          <p  class="textImg">Bad</p>
                      </a>
@@ -64,21 +64,22 @@
         <div class="diveider"></div>
     
         <div class='gridDiv' id='imgGrid'>
-            <img src="./img/livingRoom/0.jpg" id="thumbnails" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('livingRoom', 0)">
-            <img src="./img/livingRoom/1.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('livingRoom', 1)">
-            <img src="./img/livingRoom/2.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('livingRoom', 2)">
-            <img src="./img/livingRoom/3.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('livingRoom', 3)">
-            <img src="./img/livingRoom/4.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('livingRoom', 4)">
-            <img src="./img/livingRoom/5.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('livingRoom', 5)">
-            <img src="./img/livingRoom/6.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('livingRoom', 6)">
-            <img src="./img/livingRoom/7.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('livingRoom', 7)">
+            <img src="./img/stue/0.jpg" id="thumbnails" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 0)">
+            <img src="./img/stue/1.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 1)">
+            <img src="./img/stue/2.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 2)">
+            <img src="./img/stue/3.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 3)">
+            <img src="./img/stue/4.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 4)">
+            <img src="./img/stue/5.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 5)">
+            <img src="./img/stue/6.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 6)">
+            <img src="./img/stue/7.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 7)">
         </div>
         
         <div class="imgBack" onclick="zoomOut()" id="imgBack">
             <img src="svd/left.svg" class="arrow left" onclick="nextImg(-1)">
             <img src="svd/right.svg" class="arrow right" onclick="nextImg(1)">
             <img src="svd/close.svg" class="arrow close" onclick="zoomOut()"></img>
-            <img src="./img/livingRoom/0.jpg" class="zoomImg" id="zoomImg" 
+            <!--swipe dosen't work-->
+            <img src="./img/stue/0.jpg" class="zoomImg" id="zoomImg" 
             onclick="nextImg(1)"
             on-swipe-left="nextImg(1)"
             on-swipe-right="nextImg(-1)">
@@ -91,8 +92,8 @@
 
 
 <script type="text/javascript" language="javascript">
-    window.addEventListener("onload", init('livingRoom' , 45));
-    document.addEventListener("DOMContentLoaded", init('livingRoom' , 45), false);
+    window.addEventListener("onload", init('stue' , 45));
+    document.addEventListener("DOMContentLoaded", init('stue' , 45), false);
     window.addEventListener("resize", scrollUpdate);
 </script>
 </body>

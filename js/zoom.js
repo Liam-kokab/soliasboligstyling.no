@@ -1,5 +1,7 @@
 /**
- * Created by Liam-S on 17.01-2018.
+ * Created by Liam.k on 17.01-2018.
+ * fix scroll on zoomed img
+ * fix swap
  */
 var inZoom = false;
 var room;
@@ -53,9 +55,11 @@ function zoomIn(room, i) {
     inZoom = true;
     lastZoomedImgNum = i;
     lastZoomedImgRoom = room;
+    disableScroll();
 }
 
 function zoomOut() {
+    enableScroll();
     if(!inZoom || justChanged) return;
     document.getElementById('imgBack').style.display = 'none';
     inZoom = false;
