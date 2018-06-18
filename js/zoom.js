@@ -129,8 +129,6 @@ function init() {
     }
     firstInit = false;
     numOfImg = read();
-    console.log(numOfImg + ", for: " + roomName);
-    //numOfImg = 20;
     divGird = document.getElementById('imgGrid');
     scrollUpdate();
     
