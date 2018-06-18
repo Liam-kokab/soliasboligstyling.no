@@ -4,40 +4,49 @@
  * fix swap
  */
 var inZoom = false;
-var room;
-var numOfImg;
+var numOfImg = 0;
 var firstInit = true;
 var divGird;
 var lastImgLoaded = 7;
 var done = false;
 var imgNeedToLoad = 8;
 var justChanged = false;
-var justChangedTime = 2;
 var lastZoomedImgRoom = null;
 var lastZoomedImgNum = 0;
+var ready1 = false;
 
 function nextImg(i){
     if (lastZoomedImgRoom == null) return;
-    justChanged = true;
+    ZoomOutControll();
     if(lastZoomedImgNum == numOfImg && i > 0) lastZoomedImgNum = 0;
     else if (lastZoomedImgNum == 0 && i < 0) lastZoomedImgNum = numOfImg;
     else lastZoomedImgNum = lastZoomedImgNum + i;
-    document.getElementById('zoomImg').src = './img/' + room + '/' + lastZoomedImgNum + '.jpg';
-    ZoomOutControll();
+    document.getElementById('zoomImg').src = './img/' + roomName + '/' + lastZoomedImgNum + '.jpg';
+    
 }
 
 function ZoomOutControll() {
-    if (!justChanged) return;
-    if(justChangedTime > 0){
+    justChanged = true;
         setTimeout(function () {
-            justChangedTime--;
-            ZoomOutControll();
-        }, 100);
-    }else{
-        justChanged = false;
-        justChangedTime = 2;
-        console.log("done");
-    }
+            justChanged = false;
+        }, 300); 
+}
+
+function zoomIn(roomName, i) {
+    document.getElementById("body").style.overflow = 'hidden';
+    document.getElementById('zoomImg').src = './img/' + roomName + '/' + i + '.jpg';
+    document.getElementById('imgBack').style.display = 'inherit';
+    inZoom = true;
+    lastZoomedImgNum = i;
+    lastZoomedImgRoom = roomName;
+}
+
+function zoomOut() {
+    if(justChanged || !inZoom) return;
+    document.getElementById("body").style.overflow = 'auto';
+    document.getElementById('imgBack').style.display = 'none';
+    inZoom = false;
+    lastZoomedImg = null;
 }
 
 function imageLoaded(){
@@ -48,35 +57,51 @@ function imageLoaded(){
     }
 }
 
-function zoomIn(room, i) {
-    if(inZoom) return;
-    document.getElementById('zoomImg').src = './img/' + room + '/' + i + '.jpg';
-    document.getElementById('imgBack').style.display = 'inherit';
-    inZoom = true;
-    lastZoomedImgNum = i;
-    lastZoomedImgRoom = room;
-    disableScroll();
+function ready(){
+    ready1 = true;
 }
 
-function zoomOut() {
-    enableScroll();
-    if(!inZoom || justChanged) return;
-    document.getElementById('imgBack').style.display = 'none';
-    inZoom = false;
-    lastZoomedImg = null;
+function reTryInit(){
+    setTimeout(function () {
+        timer = false;
+        init();
+    }, 100);
 }
 
-function init(roomName, NumberOfImages) {
-    if(firstInit){
-        room = roomName;
-        numOfImg = NumberOfImages;
-        divGird = document.getElementById('imgGrid');
-        scrollUpdate();
-        firstInit = false;
+var timer = false;
+function init() {
+    //console.log("roomName: "+ roomName);
+    //console.log("lastRoom: "+ lastRoom);
+    if(!firstInit) return;
+    if(timer) return;
+    if(!ready1){
+        timer = true;
+        reTryInit();
+        return;
+    }
+    firstInit = false;
+    numOfImg = read();
+    console.log(numOfImg + ", for: " + roomName);
+    //numOfImg = 20;
+    divGird = document.getElementById('imgGrid');
+    scrollUpdate();
+    
+    
+}
+function read() {
+    var oFrame = document.getElementById("fromFile");
+    var text = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
+    var rooms = text.split("|");
+    for (var i = 0; i< rooms.length; i++ ){
+        if(rooms[i].indexOf(roomName) > -1) {
+            var thisRoom = rooms[i].split(":");
+            return parseInt(thisRoom[1]);
+        }
     }
 }
 
 function scrollUpdate() {
+    if(firstInit) return;
     //title resize
     document.getElementById('solias').style.fontSize = (Math.max(130 - getScrollTop(), 70) + 'px');
     document.getElementById('boligstyling').style.fontSize = (Math.max(50 - getScrollTop()/2, 20) + 'px');
@@ -105,7 +130,7 @@ function updatePage(html) {
 function getHtml() {
     lastImgLoaded++;
     if(lastImgLoaded < numOfImg)
-        return '<img src="./img/' + room + '/' + lastImgLoaded + '.jpg" class="thumbnails" onload="imageLoaded()" onclick="zoomIn(\'' + room + '\', ' + lastImgLoaded + ')">';
+        return '<img src="./img/' + roomName + '/' + lastImgLoaded + '.jpg" class="thumbnails" onload="imageLoaded()" onclick="zoomIn(\'' + roomName + '\', ' + lastImgLoaded + ')">';
     done = true;
     return "";
 }
