@@ -18,9 +18,7 @@ h1{
     width: 100%;
     text-align: left;
     align-self: center;
-    margin: 15px 0 -13px 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0px auto -13px auto;
     font-family: 'Tangerine', cursive;
 }
 .solias{
@@ -38,7 +36,7 @@ h1{
 }
 .innerTop{
     text-align: center;
-    padding: 1% 1% 1% 1%;
+    padding: 1% 1% 0px 1%;
     width: 100%;
     max-width: 60em;
     margin-left: auto;
@@ -163,7 +161,6 @@ gridElem{
 }
 
 .loeadingImg{
-    position: fixed;
     bottom: 10px;
 }
 
@@ -192,7 +189,7 @@ gridElem{
     right: 0;
     bottom: 0;
 
-    animation: imgOpen 1s forwards ease-out;
+    animation: imgOpen 0.8s forwards ease-out;
 }
 @keyframes imgOpen {
     0%   {
