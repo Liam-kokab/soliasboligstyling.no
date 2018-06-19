@@ -2,7 +2,7 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <meta name="description" content="Solias boligstyling">
     <meta name="keywords" content="boligstyling,Solias,Soliasboligstyling,interiørkonsulent,Lena Kokab">
     <meta name="author" content="Liam Kokab">
@@ -11,47 +11,70 @@
     <link rel="stylesheet" type="text/css" href="./index.css">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Tangerine" rel="stylesheet">
-
-
-
+    <script src="./js/h1Resizer.js"></script>
+    
 </head>
-<body>
-<div class="father">
-    <div class="mainDiv">
-        <div class="titleDiv">
-            <span class="solias">Solias</span>
-            <span class="boligstyling">Boligstyling</span>
+<body onscroll="scrollUpdate()">
+    <div class="father">
+        <div class="topDiv">
+            <div class="innerTop">
+                <h1>
+                    <span class="solias" id="solias">Solias</span>
+                    <span class="boligstyling" id="boligstyling">Boligstyling</span>
+                </h1>
+                <div class="manuDiv">
+                    <a class="menuButton" href="index.html">Hjem</a>
+                    <a class="menuButton" href="Bilder.html">Bilder</a>
+                    <a class="menuButton" href="priser.html">Priser</a>
+                    <a class="menuButton selectedButton" href="kontakt.html">Kontakt</a>
+                    <a class="menuButton" href="omoss.html">Om oss</a>
+                </div>
+            </div>
         </div>
-        <div class="manuDiv">
-            <a class="menuButton" href="index.html">Hjem</a>
-            <a class="menuButton" href="omoss.html">Om oss</a>
-            <a class="menuButton" href="priser.html">Priser</a>
-            <a class="menuButton selectedButton" href="kontakt.html">Kontakt</a>
+        <div class="mainDiv">
+
+            <div id="imgDiv" class="imgDiv">
+                <p style="font-size: 25px">Kontakt:</p>
+                <p>
+                    <img src="./svg/phone.svg" class="contactIcons"/> 
+                    <span class="contactInfo">+47 411 41 284</br></span>
+                    <a href="mailto:lena@soliasboligstyling.no">
+                    <img src="./svg/email.svg" class="contactIcons"/></a>
+                    <span class="contactInfo"> <a>lena@soliasboligstyling.no</a></br></span>
+                    <a  href="https://www.instagram.com/solias_boligstyling/">
+                    <img src="./svg/instagram.svg" class="contactIcons"/> 
+                    <span class="contactInfo">solias_boligstyling</br></span></a>
+                </p>                
+            </div>
+    
+            <div class="gridDiv">
+                <div class="gridElem" style="-ms-grid-column: 1" >
+                    <a href="stue.html">
+                        <img class="gridImg" src="./img/0.jpg" />
+                        <p  class="textImg">Stue</p>
+                    </a>
+                </div>
+                <div class="gridElem" style="-ms-grid-column: 2" >
+                    <a href="kjokken.html">
+                        <img class="gridImg" src="./img/1.jpg" />
+                        <p  class="textImg">Kjøkken</p>
+                    </a>
+                </div>
+                <div class="gridElem" style="-ms-grid-column: 3" >
+                    <a href="soverom.html">
+                        <img class="gridImg" src="./img/2.jpg" />
+                        <p  class="textImg">Soverom</p>
+                    </a>
+                </div>
+                <div class="gridElem" style="-ms-grid-column: 4" >
+                    <a href="bad.html">
+                        <img class="gridImg" src="./img/3.jpg" />
+                        <p  class="textImg">Bad</p>
+                    </a>
+                </div>
+                
+            </div>
         </div>
-
-        <div id="imgDiv" class="imgDiv">
-            <p>Om oss</p>
-            <pre>
-                tlf. 5555555
-                Email. Lena@bla.no
-
-            </pre>
-
-        </div>
-
-        <div class="gridDiv">
-            <div class="gridImg" style="background-image: url(./img/0.jpg); -ms-grid-column: 1"> <p class="textImg">Stue</p></div>
-            <div class="gridImg" style="background-image: url(./img/1.jpg); -ms-grid-column: 2"> <p class="textImg">Kjøkken</p></div>
-            <div class="gridImg" style="background-image: url(./img/2.jpg); -ms-grid-column: 3"> <p class="textImg">Soverom</p></div>
-            <div class="gridImg" style="background-image: url(./img/3.jpg); -ms-grid-column: 4"> <p class="textImg">bad</p></div>
-
-        </div>
-
-
-    </div>
-</div>
-
-
-
+    </div> 
 </body>
 </html>
