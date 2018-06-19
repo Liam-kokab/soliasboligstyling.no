@@ -9,6 +9,7 @@
 
     <script src="./js/imgViewerJS.js"></script>
     <script type="text/javascript" language="javascript">
+        var roomName = 'main';
         window.addEventListener("resize", init);
         window.addEventListener("onload", init);
         document.addEventListener("DOMContentLoaded", init, false);
@@ -37,8 +38,11 @@
     
 </head>
 <body>
+    <!-- just to read file from server -->
+    <iframe id="fromFile" src="./img/count.txt" onload="ready()" style="display: none;"></iframe>
+    <!--**********************************************************************-->
     <div id="imgDiv" class="imgDiv"></div>
-        <img src='./imgViewerImages/0.jpg' id='Image0' class='mainImage' style='display: inherit'>
+        <img src='./img/main/0.jpg' onload="imageloaded()" id='Image0' class='mainImage' style='display: inherit'>
     </div>
 </body>
 </html>
