@@ -8,17 +8,18 @@ var lastZoomedImgRoom = null;
 var lastZoomedImgNum = 0;
 var initDone = false;
 var rooms = {
-  name : ['main', 'bad', 'kjokken', 'soverom', 'stue'],
-  count: [8, 8, 8, 8, 8] 
+    name : ['main', 'bad', 'kjokken', 'soverom', 'stue'],
+    count: [8, 8, 8, 8, 8] 
 };
 
 //main:45|bad:38|kjokken:12|soverom:21|stue:46
 function init(){
-    divGird = document.getElementById('imgGrid');
-    //for(i = 0; i<rooms.name.length; i++){
-    //    romms.count[i] = getimageNumber(rooms.name[i]);
-    //}
-    console.log(rooms);
+    divGird = document.getElementById('imgGrid');   
+
+    for(i = 0; i<rooms.name.length; i++){
+        rooms.count[i] = getimageNumber(rooms.name[i]);
+    }
+    initDone = true;
     scrollUpdate();
 }
 
@@ -27,6 +28,7 @@ function init(){
 * controls logo size
 */
 function scrollUpdate() {
+    if(!initDone) return;
     //title resize
     document.getElementById('solias').style.fontSize = (Math.max(130 - getScrollTop(), 70) + 'px');
     document.getElementById('boligstyling').style.fontSize = (Math.max(50 - getScrollTop()/2, 20) + 'px');
@@ -54,24 +56,38 @@ function updatePage(html) {
 }
 
 posInnObj = 0;
-currentImgNum = 8;
+currentImgNum = 3;
 roomsDoneLoading = 0;
 function getHtml() {
-    if(posInnObj === rooms.name.length){
+    if(posInnObj >= rooms.name.length){
         posInnObj = 0;
         currentImgNum++;
     }
-    if(currentImgNum === rooms.count[posInnObj]){
+    if(currentImgNum >= rooms.count[posInnObj]){
         posInnObj++;
         roomsDoneLoading++;
-        if(roomsDoneLoading === rooms.name.length){
+        if(roomsDoneLoading >= rooms.name.length){
             done = true;
+            console.log('done!!');
             return "";
         }
         return getHtml();
     }
+    roomsDoneLoading = 0;
     lastImgLoaded++;
-    return '<img src="./img/' + rooms.name[posInnObj] + '/' + currentImgNum + '.jpg" class="thumbnails" onload="imageLoaded()" onclick="zoomIn(\'' + rooms.name[posInnObj] + '\', ' + currentImgNum + ')">';
+    var h = '<img src="./img/' + rooms.name[posInnObj] + '/' + currentImgNum + '.jpg" class="thumbnails" onload="imageLoaded()" onclick="zoomIn(\'' + rooms.name[posInnObj] + '\', ' + currentImgNum + ')">';
+    posInnObj++;
+    return h;
+}
+
+
+//loading Images functions
+function imageLoaded(){
+    imgNeedToLoad--;
+    if(imgNeedToLoad < 1){
+        scrollUpdate();
+        document.getElementById('loeadingImg').style.display = 'none';
+    }
 }
 
 function getDocumentHeight() {

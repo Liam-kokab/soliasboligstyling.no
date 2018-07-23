@@ -1,7 +1,7 @@
 function getimageNumber(roomName){
     switch(roomName) {
         case 'main':
-            return 45;        
+            return 35;        
         case 'bad':
             return 38;
         case 'kjokken':
