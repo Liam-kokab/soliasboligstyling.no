@@ -6,13 +6,130 @@ var imgNeedToLoad = 0;
 var justChanged = false;
 var lastZoomedImgRoom = null;
 var lastZoomedImgNum = 0;
+var lastZoomedImgRoomNum = 0;
 var initDone = false;
 var rooms = {
     name : ['main', 'bad', 'kjokken', 'soverom', 'stue'],
     count: [8, 8, 8, 8, 8] 
 };
 
-//main:45|bad:38|kjokken:12|soverom:21|stue:46
+//Zoom Functions
+function nextImg(i){
+    if (lastZoomedImgRoom == null) return;
+    ZoomOutControll();
+    lastZoomedImgRoomNum = rooms.name.indexOf(lastZoomedImgRoom);
+    getNextImage(i);
+    lastZoomedImgRoom = rooms.name[lastZoomedImgRoomNum];
+    document.getElementById('zoomImg').src = './img/' + lastZoomedImgRoom + '/' + lastZoomedImgNum + '.jpg';
+    
+}
+function getNextImage(i){
+    lastZoomedImgRoomNum += i;
+    if(lastZoomedImgRoomNum >= rooms.name.length){
+        lastZoomedImgRoomNum = 0;
+        lastZoomedImgNum++;
+    }else if(lastZoomedImgRoomNum < 0) {
+        lastZoomedImgRoomNum = rooms.name.length - 1;
+        lastZoomedImgNum--;
+        if(lastZoomedImgNum < 0){
+            max = 0;
+            for(j=0;j<rooms.name.length;j++){
+                if(max <= rooms.count[j]){
+                    lastZoomedImgRoomNum = j;
+                    lastZoomedImgNum = rooms.count[j] - 1;
+                }
+            }
+        }
+    }
+    if(lastZoomedImgNum >= Math.max(...rooms.count)){
+        lastZoomedImgNum = 0;
+        lastZoomedImgRoomNum = 0;
+    }
+    if(lastZoomedImgNum >= rooms.count[lastZoomedImgRoomNum]){
+        getNextImage(i);
+        return;
+    }
+
+}
+
+function ZoomOutControll() {
+    justChanged = true;
+        setTimeout(function () {
+            justChanged = false;
+        }, 300); 
+}
+function zoomIn(roomName, i) {
+    document.getElementById("body").style.overflow = 'hidden';
+    document.getElementById('zoomImg').src = './img/' + roomName + '/' + i + '.jpg';
+    document.getElementById('imgBack').style.display = 'inherit';
+    inZoom = true;
+    lastZoomedImgNum = i;
+    lastZoomedImgRoom = roomName;
+}
+function zoomOut() {
+    if(justChanged || !inZoom) return;
+    if(!toucheExit ) document.getElementById("body").style.overflow = 'auto';
+    else{
+        setTimeout(function () {
+            document.getElementById("body").style.overflow = 'auto';
+            toucheExit = false;
+        }, 400); 
+    }
+    document.getElementById('imgBack').style.display = 'none';
+    inZoom = false;
+    lastZoomedImg = null;
+}
+//image change on key or swipe
+window.onkeyup = function(e) {
+    if(!inZoom) return;
+    var key = e.keyCode ? e.keyCode : e.which;
+    
+    if (key == 39 || key == 13)nextImg(1);
+    else if (key == 37) nextImg(-1);
+    else if(key == 27) zoomOut();
+ } 
+
+ document.addEventListener('touchstart', handleTouchStart, false);        
+ document.addEventListener('touchmove', handleTouchMove, false);
+ 
+ var xDown = null;                                                        
+ var yDown = null;                                                        
+ var toucheExit = false;
+ function handleTouchStart(evt) {                                         
+     xDown = evt.touches[0].clientX;                                      
+     yDown = evt.touches[0].clientY;                                      
+ }                                              
+ 
+ function handleTouchMove(evt) {
+     if ( ! xDown || ! yDown ) {
+         return;
+     }
+ 
+     var xUp = evt.touches[0].clientX;                                    
+     var yUp = evt.touches[0].clientY;
+ 
+     var xDiff = xDown - xUp;
+     var yDiff = yDown - yUp;
+ 
+     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+         if ( xDiff > 0 ) {
+             nextImg(1);
+         } else {
+             nextImg(-1);
+         }                       
+     } else {
+         toucheExit = true;
+         zoomOut();                                                                
+     }
+     /* reset values */
+     xDown = null;
+     yDown = null;                                             
+ }
+
+
+
+
+//image loading functions
 function init(){
     divGird = document.getElementById('imgGrid');   
 

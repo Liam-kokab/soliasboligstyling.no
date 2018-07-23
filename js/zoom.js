@@ -61,7 +61,7 @@ window.onkeyup = function(e) {
     if (key == 39 || key == 13)nextImg(1);
     else if (key == 37) nextImg(-1);
     else if(key == 27) zoomOut();
- }; 
+ }
 
  document.addEventListener('touchstart', handleTouchStart, false);        
  document.addEventListener('touchmove', handleTouchMove, false);
@@ -72,7 +72,7 @@ window.onkeyup = function(e) {
  function handleTouchStart(evt) {                                         
      xDown = evt.touches[0].clientX;                                      
      yDown = evt.touches[0].clientY;                                      
- };                                                
+ }                                              
  
  function handleTouchMove(evt) {
      if ( ! xDown || ! yDown ) {
@@ -98,7 +98,7 @@ window.onkeyup = function(e) {
      /* reset values */
      xDown = null;
      yDown = null;                                             
- };
+ }
 
 //loading Images functions
 function imageLoaded(){
