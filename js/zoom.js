@@ -118,8 +118,6 @@ function reTryInit(){
     }, 100);
 }
 function init() {
-    //console.log("roomName: "+ roomName);
-    //console.log("lastRoom: "+ lastRoom);
     if(!firstInit) return;
     if(timer) return;
     if(!ready1){

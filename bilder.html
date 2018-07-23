@@ -13,16 +13,14 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Tangerine" rel="stylesheet"></link>
 
-    <script src="./js/zoom.js"></script>
+    <script src="./js/imgeNumber.js"></script>
+    <script src="./js/imagehandler.js"></script>
 
 
 
 
 </head>
 <body onscroll="scrollUpdate()" id="body">
-<!-- just to read file from server -->
-<iframe id="fromFile" src="./img/count.txt" onload="ready()" style="display: none;"></iframe>
-<!--**********************************************************************-->
 <div class="father">
     <div class="topDiv">
         <div class="innerTop">
@@ -32,7 +30,7 @@
             </h1>
             <div class="manuDiv">
                 <a class="menuButton" href="index.html">Hjem</a>
-                <a class="menuButton selectedButton" href="Bilder.html">Bilder</a>
+                <a class="menuButton selectedButton" href="bilder.html">Bilder</a>
                 <a class="menuButton" href="priser.html">Priser</a>
                 <a class="menuButton" href="kontakt.html">Kontakt</a>
                 <a class="menuButton" href="omoss.html">Om oss</a>
@@ -71,14 +69,16 @@
         <div class="diveider"></div>
     
         <div class='gridDiv' id='imgGrid'>
-            <img src="./img/stue/0.jpg" id="thumbnails" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 0)">
+            <img src="./img/main/0.jpg" id="thumbnails" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('main', 0)">
+            <img src="./img/bad/0.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('bad', 0)">
+            <img src="./img/kjokken/0.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('kjokken', 0)">
+            <img src="./img/soverom/0.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('soverom', 0)">
+            <img src="./img/stue/0.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 0)">
+            <img src="./img/main/1.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('main', 1)">
+            <img src="./img/bad/1.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('bad', 1)">
+            <img src="./img/kjokken/1.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('kjokken', 1)">
+            <img src="./img/soverom/1.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('soverom', 1)">
             <img src="./img/stue/1.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 1)">
-            <img src="./img/stue/2.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 2)">
-            <img src="./img/stue/3.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 3)">
-            <img src="./img/stue/4.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 4)">
-            <img src="./img/stue/5.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 5)">
-            <img src="./img/stue/6.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 6)">
-            <img src="./img/stue/7.jpg" onload="imageLoaded()" class="thumbnails" onclick="zoomIn('stue', 7)">
         </div>
         
         <div class="imgBack" onclick="zoomOut()" id="imgBack">
@@ -101,7 +101,6 @@
 
 
 <script type="text/javascript" language="javascript">
-    var roomName = 'bad';
     window.addEventListener("onload", init());
     document.addEventListener("DOMContentLoaded", init(), false);
     window.addEventListener("resize", scrollUpdate());
